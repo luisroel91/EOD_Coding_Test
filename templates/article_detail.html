@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="article-entry">
+    <h2>{{ object.title }}</h2>
+    <p>posted {{ object.created_on | timesince }} ago by {{ object.authors }}</p>
+    <p>"{{ object.body }}"</p>
+    <p>Created {{ object.created_on }} <br>
+        {% if object.created_on != object.edited_on %}
+        <p> Edited {{ object.edited_on }}</p>
+        {% endif %}
+    </p>
+</div>
+
+<p>Back to <a href="{% url 'home' %}">All Articles</a>.</p>
+
+{% endblock %}
